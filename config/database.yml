@@ -20,13 +20,15 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+#production:
+#  <<: *default
+#  database: db/production.sqlite3
+
 production:
   adapter: mysql2
   encoding: utf8
-  pool: 5
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
-  database: asdmyslq
-  username: asduser
+  database: asdmysql
+  username: sqluser
   password: pintan00
+  host: asdmysql.cxzcbnnoo1rp.us-east-2.rds.amazonaws.com
+  port: 3306

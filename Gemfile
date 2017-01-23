@@ -23,9 +23,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-gem 'unicorn'
-
 # Use Puma server
 # gem "puma"
 
@@ -51,7 +48,8 @@ gem 'gibbon'
 
 group :production do
   gem 'mysql2'
-#  gem 'sqlite3'
+  # Use Unicorn as the app server
+  gem 'unicorn'
 end
 
 group :development, :test do
