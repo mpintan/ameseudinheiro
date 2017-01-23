@@ -49,9 +49,9 @@ gem 'notifyjs_rails'
 # mailchimp gibbon
 gem 'gibbon'
 
-group :productions do
-#  gem 'mysql2'
-  gem 'sqlite3'
+group :production do
+  gem 'mysql2'
+#  gem 'sqlite3'
 end
 
 group :development, :test do
