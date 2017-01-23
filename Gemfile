@@ -50,7 +50,8 @@ gem 'notifyjs_rails'
 gem 'gibbon'
 
 group :productions do
-  gem 'mysql2'
+#  gem 'mysql2'
+  gem 'sqlite3'
 end
 
 group :development, :test do
