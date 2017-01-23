@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>WebScrapping</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="libs/bootstrap.min.css">
+
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+
+<!-- Corpo do programa -->
+
+        <p>Click on the button to load result.html file:</p>
+        <div id="stage" style="background-color:blue;">
+        STAGE
+        </div>
+        <input type="button" id="driver" value="Load Data" />
+        <div id='siteloader'></div>
+         <div> 
+          <object type="text/html" data="https://www.itau.com.br/personnalite/" width="800px" height="600px" style="overflow:auto;border:5px ridge blue">
+          </object>
+           </div>
+        
+        <script>
+        $("#siteloader").html('<object data="http://noticias.uol.com.br/politica/ultimas-noticias/2016/12/29/lava-jato-encerra-seu-ano-mais-produtivo-mirando-bancos-para-evitar-crimes.htm"/>');
+        </script>
+
+      </div>
+    </div>
+    
+    <script src="libs/jquery-3.1.1.min.js"></script>
+		<script src="libs/bootstrap.min.js"></script>
+		<script src="libs/myscript.js"></script>
+		
+  </body>
+</html>

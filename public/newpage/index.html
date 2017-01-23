@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="AmeSeuDinheiro" content="Opções em investimentos em renda fixa, LCI, LCA, CDB, LC e Tesouro Direto">
+    <meta name="AmeSeuDinheiro" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>AmeSeuDinheiro</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="libsasd/bootstrap.min.css">
+    
+    <!-- Flipclock -->
+	<link rel="stylesheet" href="libsasd/flipclock.css">
+
+    <!-- Custom styles for this template -->
+    <link href="libsasd/cover.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="inner cover">
+            <div class="jumbotron branco borda">
+                <img src="libsasd/LogoASD.png" class="img-responsive center-block img-rounded" alt="AmeSeuDinheiro">
+                <h2 class="txtbranco">Falta pouco para o nosso novo site!!!!!</h2>
+                <p class="lead">
+                    </br>
+                <div class="counter"></div>
+                  <a href="cadastro.html" class="btn btn-lg btn-default">Cadastre o seu e-mail para receber informações!</a>
+                </p>
+          </div> 
+        </div>
+
+      </div>
+
+    </div>
+    
+    
+    	<script src="libsasd/jquery-3.1.1.min.js"></script>
+		<script src="libsasd/flipclock.min.js"></script>
+		<script src="libsasd/bootstrap.min.js"></script>
+		
+		<script type="text/javascript">
+	
+    	    var hoje = new Date();
+    	    var diad = new Date('2017/01/20 00:00:00')
+    	    var dias = Math.abs((diad - hoje)/1000)
+    
+        	var clock = $('.counter').FlipClock(dias, {
+            	clockFace: 'DailyCounter',
+            	countdown: true,
+            	language: 'pt-br'
+        	});
+    
+        </script>
+        
+  </body>
+</html>

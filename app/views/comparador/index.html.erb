@@ -1,0 +1,94 @@
+<%= render 'comparador/topmenu' %>
+
+<section id="investimentos" class="container services">
+<div class="container-fluid" style="padding: 40px">
+    <%= form_tag(comparador_index_path, method: "get", class: "form-inline") do %>
+      
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group" data-toggle="tooltip" data-placement="bottom" title="Entre com o valor que deseja aplicar">
+          <%= label_tag(:valor, "Valor") %>
+          <div class="input-group">
+            <span class="input-group-addon">R$</span>
+              <%= text_field_tag(:valor, nil, class: 'form-control', placeholder: "Valor a aplicar", value: @valor_aplicar) %>
+            <span class="input-group-addon">.00</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group" id="data_4" data-toggle="tooltip" data-placement="bottom" title="Entre com a data que deseja reaver os recursos">
+          <%= label_tag(:dataresg, "Data de Resgate") %>
+            <div class='input-group date'>
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <%= text_field_tag(:dataresg, nil,  class: 'form-control', placeholder: "MM/AAAA", value: @data_resgate) %>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <%= submit_tag("Comparar Investimentos", class: "btn btn-info") %>
+      </div>
+    <% end %> 
+    </div>
+<script>
+  $.notify('<%= @msgerro %>', {position: "lef middle"});
+</script>
+
+<!-- Tabela JS -->
+  
+<% unless @resposta.nil? %>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+              <h5>Produtos Disponíveis para valores até <%= number_to_currency(@valor_aplicar, precision: 0) %> e prazo de até <%= Integer(Date.parse(@data_resgate) - Date.parse(Time.now.to_s)) %> dias </h5>
+              <div class="ibox">
+                <h7 class='text-danger'>Os produtos CDB, LCI, LCA e LC são cobertos pelo FGC até o valor de R$250mil</h7> </br>
+                <h8><%= @resposta.last.dataupdate.strftime("Atualizado em %d/%m/%Y") %> </h8>
+              </div>
+              </div>
+              <div class="ibox-content"> 
+                  <div class="table-responsive">
+                      <table class="table table-striped table-bordered table-hover dataTables-example" >
+                          <thead>
+                              <tr>
+                                  <th>Corretora</th> 
+                                  <th>Produto</th> 
+                                  <th>Prazo</th>
+                                  <th>Liquidez Diária</th>
+                                  <th>Valor Mínimo</th> 
+                                  <th>Rentabilidade</th> 
+                                  <th>Rentab. Liquida <em>(1)</em></th>
+                                  <th>Rendimento Líquido <em>(2)</em></th> 
+                              </tr>
+                          </thead>
+                      <tbody>
+                          <% @resposta.each do |titulo| %>
+                          <tr class="gradeA"> 
+                              <td><%= titulo.corretora %></td> 
+                              <td><%= titulo.produto + ' - ' + titulo.banco %></td> 
+                              <td data-order='<%= titulo.prazo %>'><%= String(titulo.prazo) + ' dias' %></td>
+                              <td><%= titulo.liquidez %></td>
+                              <td data-order='<%= titulo.valormin %>'><%= number_to_currency(titulo.valormin, precision: 0) %></td> 
+                              <td><%= titulo.rentabilidade %></td> 
+                              <td data-order='<%= titulo.rentaliq %>'><%= number_to_percentage(titulo.rentaliq*100, precision: 2) %></td> 
+                              <td data-order='<%= titulo.rendimentoliq %>'><%= number_to_currency(titulo.rendimentoliq, precision: 0) %></td> 
+                          </tr> 
+                          <% end %>
+                      </tbody>
+                      </table>
+                  </div>
+                  <h5>(1) Rentabilidade líquida ao ano projetada (descontados todos os custos de IR e taxas)</h5>
+                  <h5>(2) Rendimento líquido projetado para o prazo do título</h5>
+              </div> 
+          </div>
+      </div>
+  </div>
+</div>
+<% end %>
+
+</section>
+
+<%= render 'comparador/scripts' %>
+
+</script>

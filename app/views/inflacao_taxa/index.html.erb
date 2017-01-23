@@ -1,0 +1,29 @@
+<body style="background-color:white;">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Taxa de Inflação</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prazo Min (dias)</th>
+      <th>Prazo Max (dias)</th>
+      <th>Taxa Proj. IPCA</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inflacao_taxa.each do |ti| %>
+      <tr>
+        <td><%= ti.prazo_min %></td>
+        <td><%= ti.prazo_max %></td>
+        <td><%= ti.taxa_inflacao %></td>
+        <td><%= link_to 'Edit', edit_inflacao_taxa_path(ti) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</body>

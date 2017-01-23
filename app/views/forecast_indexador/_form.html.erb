@@ -1,0 +1,33 @@
+<%= form_for(@forecast_indexador) do |f| %>
+  <% if @forecast_indexador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@forecast_indexador.errors.count, "error") %> Erro ao salvar</h2>
+
+      <ul>
+      <% @forecast_indexador.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Indicador <br>
+    <%= f.text_field :indexador %>
+  </div>
+  <div class="field">
+    Prazo Mínima (dias) <br>
+    <%= f.text_field :prazo_min %>
+  </div>
+  <div class="field">
+    Prazo Máximo (dias) <br>
+    <%= f.text_field :prazo_max %>
+  </div>
+  <div class="field">
+    Taxa Indexador <br>
+    <%= f.text_field :taxa_indexador %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

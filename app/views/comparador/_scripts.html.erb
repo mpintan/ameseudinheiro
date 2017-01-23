@@ -1,0 +1,136 @@
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(function() {
+
+    $('body').addClass('landing-page');
+    $('body').attr('id', 'page-top');
+
+    $('body').scrollspy({
+        target: '.navbar-fixed-top',
+        offset: 80
+    });
+
+    // Page scrolling feature
+    $('a.page-scroll').bind('click', function(event) {
+        var link = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $(link.attr('href')).offset().top - 50
+        }, 500);
+        event.preventDefault();
+        $("#navbar").collapse('hide');
+    });
+
+    var cbpAnimatedHeader = (function() {
+        var docElem = document.documentElement,
+                header = document.querySelector( '.navbar-default' ),
+                didScroll = false,
+                changeHeaderOn = 200;
+        function init() {
+            window.addEventListener( 'scroll', function( event ) {
+                if( !didScroll ) {
+                    didScroll = true;
+                    setTimeout( scrollPage, 250 );
+                }
+            }, false );
+        }
+        function scrollPage() {
+            var sy = scrollY();
+            if ( sy >= changeHeaderOn ) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).addClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+        init();
+
+    })();
+
+
+});
+
+    $('#data_4 .input-group.date').datepicker({
+        minViewMode: 1,
+        format: "mm/yyyy",
+        language: "pt-BR",
+        keyboardNavigation: false,
+        forceParse: false,
+        autoclose: true,
+        todayHighlight: true
+    });
+
+</script>
+
+<script type="text/javascript">
+
+$(function() {
+
+    $('.dataTables-example').DataTable({
+        dom: '<"html5buttons"B>lTfgitp',
+        
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ produtos por página",
+            "zeroRecords": "Desculpe mas não encontramos nenhum produto",
+            "info": "Mostrando page _PAGE_ de _PAGES_ (_MAX_ produtos encontrados)",
+            "infoEmpty": "Nenhum produto encontrado",
+            "infoFiltered": "(filtrando de _MAX_ produtos)",
+            "sSearch": "Pesquisar:",
+            "sNext": "Próximo",
+            "sPrevious": "Anterior"
+        },
+        
+        "lengthMenu": [[5, 10, 25], [5, 10, 25]],
+        "order": [[ 6, "desc" ]],
+        "pagingType": "simple_numbers",
+        
+        buttons: [
+            {extend: 'csv'},
+            {extend: 'excel', title: 'ExampleFile'},
+            {extend: 'pdf', title: 'ExampleFile'}
+        ]
+
+    });
+
+    /* Init DataTables */
+    var oTable = $('#editable').dataTable();
+
+    /* Apply the jEditable handlers to the table */
+    oTable.$('td').editable( '../example_ajax.php', {
+        "callback": function( sValue, y ) {
+            var aPos = oTable.fnGetPosition( this );
+            oTable.fnUpdate( sValue, aPos[0], aPos[1] );
+        },
+        "submitdata": function ( value, settings ) {
+            return {
+                "row_id": this.parentNode.getAttribute('id'),
+                "column": oTable.fnGetPosition( this )[2]
+            };
+        },
+
+        "width": "90%",
+        "height": "100%"
+    } );
+
+
+});
+
+function fnClickAddRow() {
+    $('#editable').dataTable().fnAddData( [
+        "Custom row",
+        "New row",
+        "New row",
+        "New row",
+        "New row" ] );
+
+};
+
+
+</script>
+<% end %>

@@ -1,0 +1,29 @@
+<body style="background-color:white;">
+  <div class="container-fluid">
+    <!-- Importa Produtos -->
+    <div class="row">
+      <h1>Importar produtos</h1>
+        <%= form_tag(import_info_index_path, :multipart => true) do %>
+          <div class="col-md-3">
+            <%= file_field_tag :file %>
+          </div>
+          <div class="col-md-3">
+            <%= submit_tag "Importar" %>
+          </div>
+        <% end %>
+    </div>
+    <!-- Mostra taxas de inflação -->
+    <div class="row">
+      <h1><%= link_to 'Editar Taxa Inflação', inflacao_taxa_index_path %></h1>
+    </div>
+    <div class="row">
+      <h1><%= link_to 'Editar Indexadores', forecast_indexador_index_path %></h1>
+    </div>
+      
+    
+  </div>
+  
+  
+</body>
+
+

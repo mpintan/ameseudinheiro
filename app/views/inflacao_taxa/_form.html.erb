@@ -1,0 +1,29 @@
+<%= form_for(@inflacao_taxa) do |f| %>
+  <% if @inflacao_taxa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inflacao_taxa.errors.count, "error") %> Erro ao salvar</h2>
+
+      <ul>
+      <% @inflacao_taxa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Prazo Mínima (dias) <br>
+    <%= f.text_field :prazo_min %>
+  </div>
+  <div class="field">
+    Prazo Máximo (dias) <br>
+    <%= f.text_field :prazo_max %>
+  </div>
+  <div class="field">
+    Taxa Inflacao IPCA <br>
+    <%= f.text_field :taxa_inflacao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

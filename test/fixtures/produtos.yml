@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  corretora_id: 
+  tipo_produto_id: 
+  banco: MyString
+  liquidez: MyString
+  prazo: 1
+  indexador_id: 
+  rentabilidade: 9.99
+  valor_minimo: 9.99
+
+two:
+  corretora_id: 
+  tipo_produto_id: 
+  banco: MyString
+  liquidez: MyString
+  prazo: 1
+  indexador_id: 
+  rentabilidade: 9.99
+  valor_minimo: 9.99

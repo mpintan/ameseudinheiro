@@ -1,0 +1,2 @@
+module ForecastIndexadorHelper
+end

@@ -1,0 +1,31 @@
+<body style="background-color:white;">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Indexadores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Indexador</th>
+      <th>Prazo Min (dias)</th>
+      <th>Prazo Max (dias)</th>
+      <th>Taxa Proj. IPCA</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @forecast_indexador.each do |idx| %>
+      <tr>
+        <td><%= idx.indexador.nome_indexador %></td>
+        <td><%= idx.prazo_min %></td>
+        <td><%= idx.prazo_max %></td>
+        <td><%= idx.taxa_indexador %></td>
+        <td><%= link_to 'Editar', edit_forecast_indexador_path(idx) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</body>

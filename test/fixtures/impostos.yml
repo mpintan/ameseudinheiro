@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_produto_id: 
+  prazo_min: 9.99
+  prazo_max: 9.99
+  taxa_imposto: 9.99
+  taxa_custodia: 9.99
+
+two:
+  tipo_produto_id: 
+  prazo_min: 9.99
+  prazo_max: 9.99
+  taxa_imposto: 9.99
+  taxa_custodia: 9.99

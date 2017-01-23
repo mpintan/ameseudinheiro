@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  indexador_id: 
+  prazo_min: 9.99
+  prazo_max: 9.99
+  taxa_indexador: 9.99
+
+two:
+  indexador_id: 
+  prazo_min: 9.99
+  prazo_max: 9.99
+  taxa_indexador: 9.99

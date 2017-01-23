@@ -1,0 +1,42 @@
+<section id="investimentos" class="container services">
+<div class="row">
+    <div class="col-sm-2">
+        <%= image_tag("asd/SimboloASD.jpg", :alt => "AmeSeuDinheiro", :style => "width: 100%; top: 50%; left: 50%") %>
+    </div>
+    <div class="col-sm-6">
+        <h2>Compare Investimentos</h2>
+        <p>
+          Você pode comparar todos os títulos disponíveis nas principais corretoras e instituições financeiras. </br>
+          O comparador traz todos os títulos cobertos pelo FGC (Fundo Garantidor de Crédito) e pelo governo:
+           Tesouro Direto (LTN, LFT, NTN), CDB, LCI, LCA e LC </br> </br>
+          Os valores são calculados a partir de projeções das principais variáveis que influenciam os valores 
+          dos papeis. Todos os custos já são descontados da rentabilidade final.
+          Assim a gente já faz todas as comparações para você, sem que necessáriamente você precise estudar 
+          profundamente o que é cada uma das <i>letrinhas</i>.
+        </p>
+    </div>
+    <div class="col-sm-4">
+        <h2></h2>
+            <%= form_tag(comparador_index_path, method: "get", class: "form-group") do %>
+              <div class="form-group" data-toggle="tooltip" data-placement="bottom" title="Entre com o valor que deseja aplicar">
+                <%= label_tag(:valor, "Valor") %>
+                <div class="input-group">
+                  <span class="input-group-addon">R$</span>
+                    <%= text_field_tag(:valor, nil, class: 'form-control', placeholder: "Valor a aplicar", value: @valor_aplicar) %>
+                  <span class="input-group-addon">.00</span>
+                </div>
+              </div>
+              <div class="form-group" id="data_4" data-toggle="tooltip" data-placement="bottom" title="Entre com a data que deseja reaver os recursos">
+                <%= label_tag(:dataresg, "Data de Resgate") %>
+                  <div class='input-group date'>
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <%= text_field_tag(:dataresg, nil,  class: 'form-control', placeholder: "MM/AAAA", value: @data_resgate) %>
+                  </div>
+              </div>
+              <div class="form-group" data-toggle="tooltip" data-placement="bottom">
+                <%= submit_tag("Comparar Investimentos", class: "btn btn-default btn-block") %>
+              </div>
+            <% end %> 
+    </div>
+</div>
+</section>
